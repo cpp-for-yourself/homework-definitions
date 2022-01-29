@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  upload_progress_bar_to_wiki:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        repository: ${{ github.repository }}.wiki
+        path: wiki
+    - run: |
+        cd wiki
+        printf '%s\n%s\n' "## Tests are running! Please wait!" "![](https://i.gifer.com/origin/82/82a1ed531e333926a8ca2a00c277e0d1.gif)" > Home.md
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit --allow-empty -m "Add progress bar"
+        git push
