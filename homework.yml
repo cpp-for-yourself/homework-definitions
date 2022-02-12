@@ -1,5 +1,4 @@
----
-folder: homework/
+folder: homeworks/
 homeworks:
   - name: "Sample homework"
     folder: "homework_1"
