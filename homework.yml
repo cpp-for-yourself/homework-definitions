@@ -11,4 +11,12 @@ homeworks:
         tests:
           - name: Ls output test
             expected_output: commands.sh
+      - name: Copy of the example (fill me)
+        language: bash
+        folder: example_task_copy
+        output_type: string
+        binary_name: commands
+        tests:
+          - name: Ls output test
+            expected_output: commands.sh
       
