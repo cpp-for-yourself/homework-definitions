@@ -15,7 +15,6 @@ homeworks:
         language: bash
         folder: example_task_copy
         output_type: string
-        build_type: simple
         binary_name: commands
         tests:
           - name: Ls output test
@@ -27,6 +26,7 @@ homeworks:
         language: cpp
         folder: task_1
         output_type: string
+        build_type: simple
         binary_name: hello
         tests:
           - name: Print "Hello World!"
