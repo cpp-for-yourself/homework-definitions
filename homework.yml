@@ -24,7 +24,7 @@ homeworks:
     tasks:
       - name: Print correct string
         language: cpp
-        folder: hello_world
+        folder: task_1
         output_type: string
         binary_name: hello
         tests:
