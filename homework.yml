@@ -19,4 +19,16 @@ homeworks:
         tests:
           - name: Ls output test
             expected_output: commands.sh
+  - name: Hello World!
+    folder: hello_world
+    tasks:
+      - name: Print correct string
+        language: cpp
+        folder: task_1
+        output_type: string
+        build_type: simple
+        binary_name: hello
+        tests:
+          - name: Print "Hello World!"
+            expected_output: Hello World!
       
