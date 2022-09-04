@@ -54,7 +54,7 @@ homeworks:
               Here is your description:
               You, the clever STL guru that eats UB for breakfast
           - name: Fortune telling checks out for me in autumn
-            input_pipe_args: echo You spring fearless clever
+            input_pipe_args: echo I autumn fearless clever
             expected_output: |
               Welcome to the fortune teller program!
               Please enter your name:
