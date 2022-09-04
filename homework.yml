@@ -39,7 +39,7 @@ homeworks:
         folder: task_1
         output_type: string
         build_type: simple
-        binary_name: hello
+        binary_name: name_annotator
         tests:
           - name: Print "Hello World!"
             input_args: You spring fearless clever
