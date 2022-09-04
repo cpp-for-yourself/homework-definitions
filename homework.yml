@@ -42,6 +42,15 @@ homeworks:
         binary_name: name_annotator
         tests:
           - name: Print "Hello World!"
-            input_args: You spring fearless clever
-            expected_output: Hello World!
+            input_pipe_args: echo You spring fearless clever
+            expected_output: |
+              Welcome to the name annotator program!
+              Please enter your name:
+              Please enter time of year when you were born:
+              (pick from 'spring', 'summer', 'autumn', 'winter')
+              Please enter an adjective:
+              Please enter an adjective:
+
+              Here is your description:
+              You, the clever STL guru that eats UB for breakfast
       
