@@ -31,4 +31,17 @@ homeworks:
         tests:
           - name: Print "Hello World!"
             expected_output: Hello World!
+  - name: Name annotator
+    folder: name_annotator
+    tasks:
+      - name: Print correct string
+        language: cpp
+        folder: task_1
+        output_type: string
+        build_type: simple
+        binary_name: hello
+        tests:
+          - name: Print "Hello World!"
+            input_args: You spring fearless clever
+            expected_output: Hello World!
       
