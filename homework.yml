@@ -19,16 +19,50 @@ homeworks:
         tests:
           - name: Ls output test
             expected_output: commands.sh
-  - name: Hello World!
-    folder: hello_world
+  - name: Homework 1
+    folder: homework_1
     tasks:
-      - name: Print correct string
+      - name: Print hello world
         language: cpp
-        folder: task_1
+        folder: hello_world
         output_type: string
         build_type: simple
         binary_name: hello
         tests:
-          - name: Print "Hello World!"
+          - name: Output is correct
             expected_output: Hello World!
+  - name: Homework 2
+    folder: homework_2
+    tasks:
+      - name: Fortune teller
+        language: cpp
+        folder: fortune_teller
+        output_type: string
+        build_type: simple
+        binary_name: fortune_teller
+        tests:
+          - name: Fortune telling checks out for you in spring
+            input_pipe_args: echo You spring fearless clever
+            expected_output: |
+              Welcome to the fortune teller program!
+              Please enter your name:
+              Please enter the time of year when you were born:
+              (pick from 'spring', 'summer', 'autumn', 'winter')
+              Please enter an adjective:
+              Please enter another adjective:
+
+              Here is your description:
+              You, the clever STL guru that eats UB for breakfast
+          - name: Fortune telling checks out for me in autumn
+            input_pipe_args: echo I autumn fearless clever
+            expected_output: |
+              Welcome to the fortune teller program!
+              Please enter your name:
+              Please enter the time of year when you were born:
+              (pick from 'spring', 'summer', 'autumn', 'winter')
+              Please enter an adjective:
+              Please enter another adjective:
+
+              Here is your description:
+              I, the fearless coding beast that finds errors quicker than the compiler
       
