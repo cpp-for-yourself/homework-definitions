@@ -75,7 +75,8 @@ homeworks:
         build_type: simple
         binary_name: guessing_game
         tests:
-          - name: Guess the number in one go
+          - name: Guess 1 out of 1 numbers
+            timeout: 5.0
             input_pipe_args: echo 1 1 n 1
             expected_output: |
               Welcome to the GUESSING GAME!
@@ -83,7 +84,10 @@ homeworks:
               Please provide the smallest number: 
               Please provide the largest number: 
               Do you want to provide a random seed? [y/n]
-              Please provide a seed:
               I've generated a number. Try to guess it!
               Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
+          - name: Wrong answers should timeout
+            timeout: 5.0
+            input_pipe_args: echo 1 1 n 0
+            expected_output: irrelevant
           
