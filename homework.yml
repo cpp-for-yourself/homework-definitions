@@ -77,26 +77,23 @@ homeworks:
         tests:
           - name: Guess 1 out of 1 numbers
             timeout: 5.0
-            input_pipe_args: echo 1 1 n 1
+            input_pipe_args: echo 1 1 1
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
               Please provide the smallest number: 
               Please provide the largest number: 
-              Do you want to provide a random seed? [y/n]
               I've generated a number. Try to guess it!
               Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
-          - name: Guess from many numbers
+          - name: Guess after some searching
             timeout: 5.0
-            input_pipe_args: echo 1 5 y 1 5 2 4 3
+            input_pipe_args: echo 1 1 0 2 1
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
               Please provide the smallest number: 
               Please provide the largest number: 
-              Do you want to provide a random seed? [y/n]
-              Please provide a seed:
               I've generated a number. Try to guess it!
               Please provide the next guess: Your number is too big. Try again!
-              Please provide the next guess: You've done it! You guessed the number 2 in 2 guesses!
+              Please provide the next guess: You've done it! You guessed the number 1 in 3 guesses!
           
