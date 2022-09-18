@@ -65,4 +65,36 @@ homeworks:
 
               Here is your description:
               I, the clever coding beast that finds errors quicker than the compiler
-      
+  - name: Homework 3
+    folder: homework_3
+    tasks:
+      - name: Guessing game
+        language: cpp
+        folder: guessing_game
+        output_type: string
+        build_type: simple
+        binary_name: guessing_game
+        tests:
+          - name: Guess 1 out of 1 numbers
+            timeout: 5.0
+            input_pipe_args: echo 1 1 1
+            expected_output: |
+              Welcome to the GUESSING GAME!
+              I will generate a number and you will guess it!
+              Please provide the smallest number: 
+              Please provide the largest number: 
+              I've generated a number. Try to guess it!
+              Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
+          - name: Guess after some searching
+            timeout: 5.0
+            input_pipe_args: echo 1 1 0 2 1
+            expected_output: |
+              Welcome to the GUESSING GAME!
+              I will generate a number and you will guess it!
+              Please provide the smallest number: 
+              Please provide the largest number: 
+              I've generated a number. Try to guess it!
+              Please provide the next guess: Your number is too small. Try again!
+              Please provide the next guess: Your number is too big. Try again!
+              Please provide the next guess: You've done it! You guessed the number 1 in 3 guesses!
+          
