@@ -76,7 +76,7 @@ homeworks:
         binary_name: guessing_game
         tests:
           - name: Guess the number in one go
-            input_pipe_args: echo 1 100 y 23 89
+            input_pipe_args: echo 1 1 n 1
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
@@ -85,19 +85,5 @@ homeworks:
               Do you want to provide a random seed? [y/n]
               Please provide a seed:
               I've generated a number. Try to guess it!
-              Please provide the next guess: You've done it! You guessed the number 89 in 1 guesses!
-          - name: Guess the number in many tries
-            input_pipe_args: echo 1 100 y 23 80 90 85 89
-            expected_output: |
-              Welcome to the GUESSING GAME!
-              I will generate a number and you will guess it!
-              Please provide the smallest number: 
-              Please provide the largest number: 
-              Do you want to provide a random seed? [y/n]
-              Please provide a seed:
-              I've generated a number. Try to guess it!
-              Please provide the next guess: Your number is too small. Try again!
-              Please provide the next guess: Your number is too big. Try again!
-              Please provide the next guess: Your number is too small. Try again!
-              Please provide the next guess: You've done it! You guessed the number 89 in 4 guesses!
-      
+              Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
+          
