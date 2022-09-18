@@ -94,6 +94,7 @@ homeworks:
               Please provide the smallest number: 
               Please provide the largest number: 
               I've generated a number. Try to guess it!
+              Please provide the next guess: Your number is too small. Try again!
               Please provide the next guess: Your number is too big. Try again!
               Please provide the next guess: You've done it! You guessed the number 1 in 3 guesses!
           
