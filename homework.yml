@@ -86,8 +86,17 @@ homeworks:
               Do you want to provide a random seed? [y/n]
               I've generated a number. Try to guess it!
               Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
-          - name: Wrong answers should timeout
+          - name: Guess from many numbers
             timeout: 5.0
-            input_pipe_args: echo 1 1 n 0
-            expected_output: irrelevant
+            input_pipe_args: echo 1 5 y 1 5 2
+            expected_output: |
+              Welcome to the GUESSING GAME!
+              I will generate a number and you will guess it!
+              Please provide the smallest number: 
+              Please provide the largest number: 
+              Do you want to provide a random seed? [y/n]
+              Please provide a seed:
+              I've generated a number. Try to guess it!
+              Please provide the next guess: Your number is too big. Try again!
+              Please provide the next guess: You've done it! You guessed the number 2 in 2 guesses!
           
