@@ -88,7 +88,7 @@ homeworks:
               Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
           - name: Guess from many numbers
             timeout: 5.0
-            input_pipe_args: echo 1 5 y 1 5 2
+            input_pipe_args: echo 1 5 y 1 5 2 4 3
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
