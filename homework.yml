@@ -81,8 +81,8 @@ homeworks:
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
-              Please provide the smallest number: 
-              Please provide the largest number: 
+              Please provide the smallest number:
+              Please provide the largest number:
               I've generated a number. Try to guess it!
               Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
           - name: Guess after some searching
@@ -91,10 +91,23 @@ homeworks:
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
-              Please provide the smallest number: 
-              Please provide the largest number: 
+              Please provide the smallest number:
+              Please provide the largest number:
               I've generated a number. Try to guess it!
               Please provide the next guess: Your number is too small. Try again!
               Please provide the next guess: Your number is too big. Try again!
               Please provide the next guess: You've done it! You guessed the number 1 in 3 guesses!
-          
+  - name: Homework 4
+    folder: homework_4
+    tasks:
+      - name: Strings processing library
+        language: cpp
+        folder: no_strings_attached
+        tests:
+          - name: Build and run user tests
+            run_google_tests: True
+          - name: Build and run control tests
+            run_google_tests: True
+            inject_folders:
+              - source: inject/homework_4/tests  # Relative to job folder
+                destination: src/no_strings_attached/tests  # Relative to the code source folder
