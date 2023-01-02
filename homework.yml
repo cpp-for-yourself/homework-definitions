@@ -65,7 +65,6 @@ homeworks:
       - name: Guessing game
         language: cpp
         folder: guessing_game
-        binary_name: guessing_game
         tests:
           - name: Build binary
             cmd: c++ -std=c++17 guessing_game.cpp -o guessing_game
