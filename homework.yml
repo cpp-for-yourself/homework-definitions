@@ -4,45 +4,39 @@ homeworks:
     folder: "example_homework"
     tasks:
       - name: Example task
-        language: bash
         folder: example_task
-        output_type: string
-        binary_name: commands
         tests:
           - name: Ls output test
+            cmd: bash commands.sh
             expected_output: commands.sh
       - name: Copy of the example (fill me)
-        language: bash
         folder: example_task_copy
-        output_type: string
-        binary_name: commands
         tests:
           - name: Ls output test
+            cmd: bash commands.sh
             expected_output: commands.sh
   - name: Homework 1
     folder: homework_1
     tasks:
       - name: Print hello world
-        language: cpp
         folder: hello_world
-        output_type: string
-        build_type: simple
-        binary_name: hello
         tests:
+          - name: Build binary
+            cmd: c++ -std=c++17 hello.cpp -o hello
+            expected_output: Hello World!
           - name: Output is correct
+            cmd: ./hello
             expected_output: Hello World!
   - name: Homework 2
     folder: homework_2
     tasks:
       - name: Fortune teller
-        language: cpp
         folder: fortune_teller
-        output_type: string
-        build_type: simple
-        binary_name: fortune_teller
         tests:
+          - name: Build binary
+            cmd: c++ -std=c++17 fortune_teller.cpp -o fortune_teller
           - name: Fortune telling checks out for you in spring
-            input_pipe_args: echo You spring fearless clever
+            cmd: echo You spring fearless clever | ./fortune_teller
             expected_output: |
               Welcome to the fortune teller program!
               Please enter your name:
@@ -54,7 +48,7 @@ homeworks:
               Here is your description:
               You, the clever STL guru that eats UB for breakfast
           - name: Fortune telling checks out for me in autumn
-            input_pipe_args: echo I autumn fearless clever
+            cmd: echo I autumn fearless clever | ./fortune_teller
             expected_output: |
               Welcome to the fortune teller program!
               Please enter your name:
@@ -71,13 +65,13 @@ homeworks:
       - name: Guessing game
         language: cpp
         folder: guessing_game
-        output_type: string
-        build_type: simple
         binary_name: guessing_game
         tests:
+          - name: Build binary
+            cmd: c++ -std=c++17 guessing_game.cpp -o guessing_game
           - name: Guess 1 out of 1 numbers
+            cmd: echo 1 1 1 | ./guessing_game
             timeout: 5.0
-            input_pipe_args: echo 1 1 1
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
@@ -86,8 +80,8 @@ homeworks:
               I've generated a number. Try to guess it!
               Please provide the next guess: You've done it! You guessed the number 1 in 1 guesses!
           - name: Guess after some searching
+            cmd: echo 1 1 0 2 1 | ./guessing_game
             timeout: 5.0
-            input_pipe_args: echo 1 1 0 2 1
             expected_output: |
               Welcome to the GUESSING GAME!
               I will generate a number and you will guess it!
@@ -101,13 +95,18 @@ homeworks:
     folder: homework_4
     tasks:
       - name: Strings processing library
-        language: cpp
         folder: no_strings_attached
         tests:
-          - name: Build and run user tests
-            run_google_tests: True
-          - name: Build and run control tests
-            run_google_tests: True
-            inject_folders:
-              - source: inject/homework_4/validation_tests  # Relative to job folder
-                destination: validation_tests  # Relative to the code source folder
+          - name: Configure CMake
+            cmd: cmake -S . -B build
+          - name: Build code
+            cmd: cmake --build build -j 2
+          - name: Run your tests
+            cmd: ctest --test-dir build --output-on-failure
+          - name: Inject and build validation tests
+            cmd: |
+              cp -r ${JOB_ROOT}/inject/homework_4/validation_tests validation_tests &&
+              echo "add_subdirectory(validation_tests)" >> CMakeLists.txt &&
+              cmake --build build -j 2
+          - name: Run your and validation tests
+            cmd: ctest --test-dir build --output-on-failure
