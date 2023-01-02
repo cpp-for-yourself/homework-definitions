@@ -98,7 +98,7 @@ homeworks:
         folder: no_strings_attached
         tests:
           - name: Configure CMake
-            cmd: cmake -S . -B build
+            cmd: cmake -D CMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic" -S . -B build
           - name: Build code
             cmd: cmake --build build -j 2
           - name: Run your tests
