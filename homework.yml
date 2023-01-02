@@ -63,7 +63,6 @@ homeworks:
     folder: homework_3
     tasks:
       - name: Guessing game
-        language: cpp
         folder: guessing_game
         tests:
           - name: Build binary
