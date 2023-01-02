@@ -109,5 +109,5 @@ homeworks:
           - name: Build and run control tests
             run_google_tests: True
             inject_folders:
-              - source: inject/homework_4/tests  # Relative to job folder
-                destination: src/no_strings_attached/tests  # Relative to the code source folder
+              - source: inject/homework_4/validation_tests  # Relative to job folder
+                destination: validation_tests  # Relative to the code source folder
