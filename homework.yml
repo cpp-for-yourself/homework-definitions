@@ -23,7 +23,6 @@ homeworks:
         tests:
           - name: Build binary
             cmd: c++ -std=c++17 hello.cpp -o hello
-            expected_output: Hello World!
           - name: Output is correct
             cmd: ./hello
             expected_output: Hello World!
