@@ -107,3 +107,22 @@ homeworks:
               cmake --build build -j 2
           - name: Run your and validation tests
             cmd: ctest --test-dir build --output-on-failure
+      - name: Strings processing binaries
+        folder: no_strings_attached
+        tests:
+          - name: Configure CMake
+            cmd: cmake -D UPDATE_SUBMODULES=NO -D CMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic" -S . -B build
+          - name: Build code
+            cmd: cmake --build build -j 2
+          - name: Split string
+            cmd: echo "hello world" | ./build/examples/split_strings
+            expected_output: |
+              Example program that splits strings.
+              Please enter a string:
+              Your split string: 'hello' 'world'
+          - name: Trim string
+            cmd: echo "  hello world   " | ./build/examples/trim_strings
+            expected_output: |
+              Example program that trims strings.
+              Please enter a string:
+              Your trimmed string: 'hello world'
