@@ -8,7 +8,7 @@ using pixelator::StbImage;
 
 TEST(StbImageValidationTest, Initialization) {
   const std::filesystem::path image_path{
-      "../../../tui_pixelator/test_data/grumpy.png"};
+      "../../tui_pixelator/test_data/grumpy.png"};
   const StbImage image{image_path};
   ASSERT_FALSE(image.empty());
   ASSERT_EQ(image.rows(), 686);
@@ -17,7 +17,7 @@ TEST(StbImageValidationTest, Initialization) {
 
 TEST(StbImageValidationTest, MoveConstructor) {
   const std::filesystem::path image_path{
-      "../../../tui_pixelator/test_data/grumpy.png"};
+      "../../tui_pixelator/test_data/grumpy.png"};
   StbImage image{image_path};
   ASSERT_FALSE(image.empty());
   const StbImage image_other{std::move(image)};
@@ -27,7 +27,7 @@ TEST(StbImageValidationTest, MoveConstructor) {
 
 TEST(StbImageValidationTest, MoveAssignmentOperator) {
   const std::filesystem::path image_path{
-      "../../../tui_pixelator/test_data/grumpy.png"};
+      "../../tui_pixelator/test_data/grumpy.png"};
   StbImage image_to_move_to{};
   ASSERT_TRUE(image_to_move_to.empty());
   StbImage image{image_path};
