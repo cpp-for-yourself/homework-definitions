@@ -126,3 +126,15 @@ homeworks:
               Example program that trims strings.
               Please enter a string:
               Your trimmed string: 'hello world'
+  - name: Homework 5
+    folder: homework_5
+    tasks:
+      - name: Pixelator build
+        folder: no_strings_attached
+        tests:
+          - name: Configure CMake
+            cmd: cmake -D UPDATE_SUBMODULES=NO -D CMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic" -S . -B build
+          - name: Build code
+            cmd: cmake --build build -j 2
+          - name: Run your tests
+            cmd: ctest --test-dir build --output-on-failure
