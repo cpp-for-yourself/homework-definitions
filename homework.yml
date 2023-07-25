@@ -130,7 +130,7 @@ homeworks:
     folder: homework_5
     tasks:
       - name: Pixelator build
-        folder: no_strings_attached
+        folder: tui_pixelator
         tests:
           - name: Configure CMake
             cmd: cmake -D UPDATE_SUBMODULES=NO -D CMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic" -S . -B build
