@@ -99,14 +99,14 @@ homeworks:
           - name: Build code
             cmd: cmake --build build -j 2
           - name: Run your tests
-            cmd: ctest --test-dir build --output-on-failure
+            cmd: ctest --test-dir build --output-on-failure -j 2
           - name: Inject and build validation tests
             cmd: |
               cp -r ${JOB_ROOT}/inject/homework_4/validation_tests validation_tests &&
               echo "add_subdirectory(validation_tests)" >> CMakeLists.txt &&
               cmake --build build -j 2
           - name: Run your and validation tests
-            cmd: ctest --test-dir build --output-on-failure
+            cmd: ctest --test-dir build --output-on-failure -j 2
       - name: Strings processing binaries
         folder: no_strings_attached
         tests:
@@ -137,4 +137,11 @@ homeworks:
           - name: Build code
             cmd: cmake --build build -j 2
           - name: Run your tests
-            cmd: ctest --test-dir build --output-on-failure
+            cmd: ctest --test-dir build --output-on-failure -j 2
+          - name: Inject and build validation tests
+            cmd: |
+              cp -r ${JOB_ROOT}/inject/homework_5/validation_tests validation_tests &&
+              echo "add_subdirectory(validation_tests)" >> CMakeLists.txt &&
+              cmake --build build -j 2
+          - name: Run your and validation tests
+            cmd: ctest --test-dir build --output-on-failure -j 2
