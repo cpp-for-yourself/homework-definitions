@@ -145,12 +145,5 @@ homeworks:
               cmake --build build -j 2
           - name: Run your and validation tests
             cmd: ctest --test-dir build --output-on-failure -j 2
-      - name: Pixelate image
-        folder: tui_pixelator
-        tests:
-          - name: Configure CMake
-            cmd: cmake -D UPDATE_SUBMODULES=NO -D CMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic" -S . -B build
-          - name: Build code
-            cmd: cmake --build build -j 2
           - name: Pixelate an image
             cmd: ./build/examples/pixelate tui_pixelator/test_data/test.png
