@@ -1,17 +1,16 @@
-#include "tui_pixelator/drawer.hpp"
+#include "pixelator/drawer.hpp"
 
 #include <gtest/gtest.h>
-
 #include <ftxui/screen/color.hpp>
 #include <ftxui/screen/screen.hpp>
 
 namespace {
 using pixelator::Drawer;
-using pixelator::PixelatedImage;
+using pixelator::Image;
 using pixelator::Size;
 }  // namespace
 
-TEST(DrawerValidationTest, Initialization) {
+TEST(DrawerTest, InitializeWithFixedSize) {
   Drawer drawer{ftxui::Dimension::Fixed(42)};
   EXPECT_EQ(drawer.size().rows, 42);
   EXPECT_EQ(drawer.size().cols, 84);
@@ -19,8 +18,8 @@ TEST(DrawerValidationTest, Initialization) {
   EXPECT_EQ(drawer.cols(), 84);
 }
 
-TEST(DrawerValidationTest, SetFromImage) {
-  PixelatedImage image{Size{1, 2}};
+TEST(DrawerTest, SetFromImage) {
+  Image image{Size{1, 2}};
   image.at(0, 0) = ftxui::Color::Black;
   image.at(0, 1) = ftxui::Color::Red;
   Drawer drawer{ftxui::Dimension::Fixed(1)};
