@@ -1,18 +1,17 @@
-#include "tui_pixelator/stb_image.hpp"
+#include "pixelator/stb_image_data_view.hpp"
 
-#include <gtest/gtest.h>
-
-#include <ftxui/screen/color.hpp>
+#include "ftxui/screen/color.hpp"
+#include "gtest/gtest.h"
 
 namespace {
-using pixelator::StbImage;
-const auto kImagePath{"../../tui_pixelator/test_data/test.png"};
+using pixelator::StbImageDataView;
+const auto kImagePath{"../../pixelator/test_data/test.png"};
 const auto kBlack{ftxui::Color::RGB(0, 0, 0)};
 const auto kWhite{ftxui::Color::RGB(255, 255, 255)};
 }  // namespace
 
-TEST(StbImageValidationTest, Initialization) {
-  const StbImage image{kImagePath};
+TEST(StbImageDataViewValidationTest, Initialization) {
+  const StbImageDataView image{kImagePath};
   ASSERT_FALSE(image.empty())
       << "Make sure the image is available at " << kImagePath
       << " with respect to the root of the project.";
@@ -28,12 +27,12 @@ TEST(StbImageValidationTest, Initialization) {
   ASSERT_EQ(image.at(5, 2), kWhite);
 }
 
-TEST(StbImageValidationTest, MoveConstructor) {
-  StbImage image{kImagePath};
+TEST(StbImageDataViewValidationTest, MoveConstructor) {
+  StbImageDataView image{kImagePath};
   ASSERT_FALSE(image.empty())
       << "Make sure the image is available at " << kImagePath
       << " with respect to the root of the project.";
-  const StbImage image_other{std::move(image)};
+  const StbImageDataView image_other{std::move(image)};
   ASSERT_TRUE(image.empty());
   ASSERT_FALSE(image_other.empty());
   ASSERT_EQ(image_other.rows(), 6);
@@ -48,10 +47,10 @@ TEST(StbImageValidationTest, MoveConstructor) {
   ASSERT_EQ(image_other.at(5, 2), kWhite);
 }
 
-TEST(StbImageValidationTest, MoveAssignmentOperator) {
-  StbImage image_to_move_to{};
+TEST(StbImageDataViewValidationTest, MoveAssignmentOperator) {
+  StbImageDataView image_to_move_to{};
   ASSERT_TRUE(image_to_move_to.empty());
-  StbImage image{kImagePath};
+  StbImageDataView image{kImagePath};
   image_to_move_to = std::move(image);
   ASSERT_TRUE(image.empty());
   ASSERT_FALSE(image_to_move_to.empty());
