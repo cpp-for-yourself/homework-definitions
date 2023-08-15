@@ -130,7 +130,7 @@ homeworks:
     folder: homework_5
     tasks:
       - name: Pixelator build
-        folder: tui_pixelator
+        folder: pixelator
         tests:
           - name: Configure CMake
             cmd: cmake -D UPDATE_SUBMODULES=NO -D CMAKE_CXX_FLAGS="-Wall -Wextra -Wpedantic" -S . -B build
@@ -146,4 +146,4 @@ homeworks:
           - name: Run your and validation tests
             cmd: ctest --test-dir build --output-on-failure -j 2
           - name: Pixelate an image
-            cmd: ./build/examples/pixelate tui_pixelator/test_data/test.png
+            cmd: ./build/examples/pixelate pixelator/test_data/test.png
