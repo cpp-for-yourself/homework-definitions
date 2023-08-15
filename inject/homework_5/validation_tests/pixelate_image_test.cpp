@@ -17,7 +17,7 @@ const auto kBlack{ftxui::Color::RGB(0, 0, 0)};
 const auto kWhite{ftxui::Color::RGB(255, 255, 255)};
 }  // namespace
 
-TEST(PixelateTest, PassingSameOrBiggerSizeReturnsSameSizedImage) {
+TEST(PixelateImageValidationTest, PassingSameOrBiggerSizeReturnsSameSizedImage) {
   const StbImageDataView image{kImagePath};
   const auto size = image.size();
   const auto pixelated_image = PixelateImage(image, size);
@@ -37,7 +37,7 @@ TEST(PixelateTest, PassingSameOrBiggerSizeReturnsSameSizedImage) {
   }
 }
 
-TEST(PixelateTest, PixelateSimpleTest6x4Image) {
+TEST(PixelateImageValidationTest, PixelateSimpleTest6x4Image) {
   const StbImageDataView image{kImagePath};
   const auto pixelated_image = PixelateImage(image, Size{3, 2});
   EXPECT_EQ(pixelated_image.rows(), 3) << "Pixelated image has wrong size.";

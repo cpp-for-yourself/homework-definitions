@@ -10,7 +10,7 @@ const auto kBlack{ftxui::Color::RGB(0, 0, 0)};
 const auto kWhite{ftxui::Color::RGB(255, 255, 255)};
 }  // namespace
 
-TEST(StbImageTest, Initialization) {
+TEST(StbImageDataViewValidationTest, Initialization) {
   const StbImageDataView image{kImagePath};
   ASSERT_FALSE(image.empty())
       << "Make sure the image is available at " << kImagePath
@@ -27,7 +27,7 @@ TEST(StbImageTest, Initialization) {
   ASSERT_EQ(image.at(5, 2), kWhite);
 }
 
-TEST(StbImageTest, MoveConstructor) {
+TEST(StbImageDataViewValidationTest, MoveConstructor) {
   StbImageDataView image{kImagePath};
   ASSERT_FALSE(image.empty())
       << "Make sure the image is available at " << kImagePath
@@ -47,7 +47,7 @@ TEST(StbImageTest, MoveConstructor) {
   ASSERT_EQ(image_other.at(5, 2), kWhite);
 }
 
-TEST(StbImageTest, MoveAssignmentOperator) {
+TEST(StbImageDataViewValidationTest, MoveAssignmentOperator) {
   StbImageDataView image_to_move_to{};
   ASSERT_TRUE(image_to_move_to.empty());
   StbImageDataView image{kImagePath};

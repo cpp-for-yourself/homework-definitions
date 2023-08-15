@@ -10,7 +10,7 @@ using pixelator::Image;
 using pixelator::Size;
 }  // namespace
 
-TEST(DrawerTest, InitializeWithFixedSize) {
+TEST(DrawerValidationTest, InitializeWithFixedSize) {
   Drawer drawer{ftxui::Dimension::Fixed(42)};
   EXPECT_EQ(drawer.size().rows, 42);
   EXPECT_EQ(drawer.size().cols, 84);
@@ -18,7 +18,7 @@ TEST(DrawerTest, InitializeWithFixedSize) {
   EXPECT_EQ(drawer.cols(), 84);
 }
 
-TEST(DrawerTest, SetFromImage) {
+TEST(DrawerValidationTest, SetFromImage) {
   Image image{Size{1, 2}};
   image.at(0, 0) = ftxui::Color::Black;
   image.at(0, 1) = ftxui::Color::Red;

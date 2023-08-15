@@ -8,7 +8,7 @@ using pixelator::Image;
 using pixelator::Size;
 }  // namespace
 
-TEST(ImageTest, DefaultConstructorCreatesAnEmptyImage) {
+TEST(ImageValidationTest, DefaultConstructorCreatesAnEmptyImage) {
   const Image image;
   EXPECT_TRUE(image.empty());
   EXPECT_EQ(image.size().cols, 0);
@@ -17,7 +17,7 @@ TEST(ImageTest, DefaultConstructorCreatesAnEmptyImage) {
   EXPECT_EQ(image.rows(), 0);
 }
 
-TEST(ImageTest, ImageCreatedWithSizeHasCorrectSize) {
+TEST(ImageValidationTest, ImageCreatedWithSizeHasCorrectSize) {
   const Image image{Size{10, 20}};
   EXPECT_EQ(image.size().rows, 10);
   EXPECT_EQ(image.size().cols, 20);
@@ -25,7 +25,7 @@ TEST(ImageTest, ImageCreatedWithSizeHasCorrectSize) {
   EXPECT_EQ(image.rows(), 10);
 }
 
-TEST(ImageTest, ImageCreatedWithSizeHasCorrectDefaultColor) {
+TEST(ImageValidationTest, ImageCreatedWithSizeHasCorrectDefaultColor) {
   const Image image{Size{10, 20}};
   EXPECT_FALSE(image.empty());
   EXPECT_EQ(image.cols(), 20);
